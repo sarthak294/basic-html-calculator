@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            #div1{
+                padding: 15px;
+              background-color: darksalmon;
+                width:fit-content;
+               
+            }
+            input[type="button"]
+            {
+                width: 60px;
+                height: 60px;
+                background-color: lightskyblue;
+                
+            }
+        </style>
+        <script>
+               var operator;
+                var num1;
+    function calci(caption)
+    {
+                var txt=document.getElementById("txt1");
+                if(caption == '+' || caption == '-' || caption == 'x' || caption == '/')
+                {
+                    num1 = txt.value;
+                    txt.value = "";
+                    operator = caption;
+                }
+                else if(caption == '=')
+                {
+                    if(operator == '+')
+                    {
+                        txt.value = parseInt(num1) + parseInt(txt.value);
+                    }
+                    else if(operator == '-')
+                    {
+                        txt.value = parseInt(num1) - parseInt(txt.value);
+                    }
+                    else if(operator == 'x')
+                    {
+                        txt.value = parseInt(num1) * parseInt(txt.value);
+                    }
+                    else if(operator == '/')
+                    {
+                        txt.value = parseInt(num1) / parseInt(txt.value);
+                    }
+                }
+                else
+                {
+                    txt.value=txt.value+caption; 
+                }
+            }
+        </script>
+    </head>
+    <body>
+<div id="div1">
+    <input type="text" id="txt1" style="width: 100%; height: 40px;" />
+    <table>
+<tr>
+    
+    <td><input type="button" value="7" onclick="calci(7)" /></td>
+    <td><input type="button" value="8" onclick="calci(8)" /></td>
+    <td><input type="button" value="9" onclick="calci(9)" /></td>
+    <td><input type="button" value="/" onclick="calci('/')" /></td>
+</tr>
+<tr>
+    <td><input type="button" value="4" onclick="calci(4)" /></td>
+    <td><input type="button" value="5" onclick="calci(5)" /></td>
+    <td><input type="button" value="6" onclick="calci(6)" /></td>
+    <td><input type="button" value="x" onclick="calci('x')" /></td>
+</tr>
+<tr>
+    <td><input type="button" value="1" onclick="calci(1)"/></td>
+    <td><input type="button" value="2" onclick="calci(2)" /></td>
+    <td><input type="button" value="3" onclick="calci(3)" /></td>
+    <td><input type="button" value="-" onclick="calci('-')" /></td>
+
+</tr>
+<tr>
+    <td><input type="button" value="0" onclick="calci(0)" /></td>
+    <td><input type="button" value="." onclick="calci('.')" /></td>
+    <td><input type="button" value="=" onclick="calci('=')" /></td>
+    <td><input type="button" value="+" onclick="calci('+')" /></td>
+</tr>
+   </table>
+</div>
+    </body>
+</html>
